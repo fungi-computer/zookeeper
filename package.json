@@ -1,0 +1,67 @@
+{
+  "name": "@fungi.computer/zookeeper",
+  "version": "0.0.1",
+  "description": "Durable Object store governor: the storage budget and pressure policy behind Shiitake's refusal door",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing.d.ts",
+      "import": "./dist/testing.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node --input-type=module --eval \"import { rm } from 'node:fs/promises'; await rm('dist', { recursive: true, force: true });\"",
+    "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src test --max-warnings=0 && ../../node_modules/.bin/oxlint --config ../../oxlint.config.ts --deny-warnings src test",
+    "test": "vitest run --config vitest.config.mjs",
+    "pack": "mkdir -p ../../.botanical/zookeeper-pack && pnpm pack --pack-destination \"$PWD/../../.botanical/zookeeper-pack\"",
+    "smoke": "node test/stranger/runtime.mjs",
+    "stranger": "tsx ../../tooling/repository/src/artifacts/cli.ts --repo-root ../.. .",
+    "format:check": "node ../../tooling/repository/scripts/format-package-check.mjs",
+    "lint:anti-slop": "node ../../tooling/repository/scripts/lint-package-anti-slop.mjs"
+  },
+  "dependencies": {
+    "@fungi.computer/shiitake": "workspace:*",
+    "@noble/hashes": "2.4.0",
+    "effect": "4.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fungi-computer/zookeeper.git"
+  },
+  "botanical": {
+    "role": "package",
+    "operations": {
+      "lint": "required",
+      "typecheck": "required",
+      "build": "required",
+      "test": "required",
+      "docs": {
+        "status": "not-applicable",
+        "reason": "README owns this host-governor contract; no generated documentation site"
+      },
+      "pack": "required",
+      "smoke": "required",
+      "stranger": "required"
+    }
+  }
+}

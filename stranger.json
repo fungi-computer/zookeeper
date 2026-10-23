@@ -1,0 +1,33 @@
+{
+  "expectedTarballFiles": [
+    "package/LICENSE",
+    "package/README.md",
+    "package/dist/archive-format.d.ts",
+    "package/dist/archive-format.js",
+    "package/dist/archive-key.d.ts",
+    "package/dist/archive-key.js",
+    "package/dist/archive-writer.d.ts",
+    "package/dist/archive-writer.js",
+    "package/dist/handoff.d.ts",
+    "package/dist/handoff.js",
+    "package/dist/index.d.ts",
+    "package/dist/index.js",
+    "package/dist/patrol.d.ts",
+    "package/dist/patrol.js",
+    "package/dist/pressure.d.ts",
+    "package/dist/pressure.js",
+    "package/dist/testing.d.ts",
+    "package/dist/testing.js",
+    "package/package.json"
+  ],
+  "localDependencies": ["../shiitake"],
+  "runtimeFixture": "test/stranger/runtime.mjs",
+  "typechecks": [
+    {
+      "fixture": "test/stranger/consumer.mts"
+    }
+  ],
+  "consumerDevDependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0"
+  }
+}
