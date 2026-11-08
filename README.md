@@ -1,12 +1,18 @@
-# Zookeeper
+# Zookeeper (`@fungi.computer/zookeeper`)
 
-Zookeeper governs one Durable Object's store. Storage and memory limits for
-Durable Objects belong here, never in Shiitake core.
+Zookeeper keeps a Shiitake host's Durable Object store within its storage
+budget: a pressure check that refuses new work near the limit, a patrol that
+finds the largest Sessions, and archiving when compaction drops history.
+Oyster's Shiitake host uses it. Storage and memory limits belong here, never in
+Shiitake core.
 
-Zookeeper is an installable package candidate because Oyster's public Shiitake
-host uses its pressure check and patrol at runtime. Its stranger fixture checks
-the packed exports without workspace links. This packaging boundary does not
-authorize an external repository, registry publication, or deployment.
+## Install
+
+```sh
+npm install @fungi.computer/zookeeper
+```
+
+## Storage pressure
 
 `openStoragePressure({ usedBytes, budgetBytes })` returns the host's
 `StoragePressureCheck` for Shiitake's `storagePressure` option. It reports
