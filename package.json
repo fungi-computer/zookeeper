@@ -1,6 +1,6 @@
 {
   "name": "@fungi.computer/zookeeper",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Durable Object store governor: the storage budget and pressure policy behind Shiitake's refusal door",
   "type": "module",
   "sideEffects": false,
@@ -25,16 +25,10 @@
     "clean": "node --input-type=module --eval \"import { rm } from 'node:fs/promises'; await rm('dist', { recursive: true, force: true });\"",
     "build": "pnpm run clean && tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "eslint src test --max-warnings=0 && ../../node_modules/.bin/oxlint --config ../../oxlint.config.ts --deny-warnings src test",
-    "test": "vitest run --config vitest.config.mjs",
-    "pack": "mkdir -p ../../.botanical/zookeeper-pack && pnpm pack --pack-destination \"$PWD/../../.botanical/zookeeper-pack\"",
-    "smoke": "node test/stranger/runtime.mjs",
-    "stranger": "tsx ../../tooling/repository/src/artifacts/cli.ts --repo-root ../.. .",
-    "format:check": "node ../../tooling/repository/scripts/format-package-check.mjs",
-    "lint:anti-slop": "node ../../tooling/repository/scripts/lint-package-anti-slop.mjs"
+    "smoke": "node test/stranger/runtime.mjs"
   },
   "dependencies": {
-    "@fungi.computer/shiitake": "workspace:*",
+    "@fungi.computer/shiitake": "0.18.1",
     "@noble/hashes": "2.4.0",
     "effect": "4.0.2"
   },
