@@ -1,5 +1,11 @@
 # @fungi.computer/zookeeper
 
+## 0.0.72
+
+### Patch Changes
+
+- @fungi.computer/shiitake@0.22.13
+
 ## 0.0.71
 
 ### Patch Changes
