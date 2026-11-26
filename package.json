@@ -1,6 +1,6 @@
 {
   "name": "@fungi.computer/zookeeper",
-  "version": "0.0.86",
+  "version": "0.0.87",
   "description": "Durable Object store governor: the storage budget and pressure policy behind Shiitake's refusal door",
   "type": "module",
   "sideEffects": false,
@@ -28,7 +28,7 @@
     "smoke": "node test/stranger/runtime.mjs"
   },
   "dependencies": {
-    "@fungi.computer/shiitake": "0.24.3",
+    "@fungi.computer/shiitake": "0.24.4",
     "@noble/hashes": "2.4.0",
     "effect": "4.0.2"
   },
